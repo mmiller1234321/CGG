@@ -1,5 +1,20 @@
-<!-- Render the details of a single skill -->
+{{!-- <!-- Render the details of a single skill -->
 <div class="skill">
   <h2>{{skill.name}}</h2>
   <!-- Add more HTML to display other details of the skill Look at server.js, had to move this into views and out of partials. look at home-routes.js too. -->
+</div> --}}
+
+
+<h1>{{skill.name}}</h1>
+
+<div class="row">
+  {{#each skill.tutors}}
+  <div class="col-md-5 mx-1 border border-primary border-2 bg-light rounded">
+    <h3>Tutor: {{this.name}}</h3>
+    <p>Email: {{this.email}}</p>
+    <!-- You need to add jobTitle field in your tutor model to display it here -->
+    <!-- <p>Job Title: {{this.jobTitle}}</p> -->
+    <!-- I want to put images in here too -->
+  </div>
+  {{/each}}
 </div>

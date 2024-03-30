@@ -11,12 +11,10 @@ router.get('/', async (req, res) => {
       //     through: { attributes: [] } // Exclude pivot table attributes
       //   }
       // ] 
-     
     });
 
     const skills = skillsdata.map((skill) =>
-      skill.get({ plain: true }))
-  
+      skill.get({ plain: true }));
 
     res.render('homepage', { skills });
   } catch (err) {
@@ -28,24 +26,28 @@ router.get('/', async (req, res) => {
 // GET one skill
 router.get('/skill/:id', async (req, res) => {
   try {
-    const skilldata = await Skill.findByPk(req.params.id, {
-      // include: [
-      //   {
-      //     model: Tutor,
-      //     attributes: ['id', 'name', 'email', 'jobTitle'],
-      //     through: { attributes: [] } // Exclude pivot table attributes
-      //   }
-      // ]
+    const skilldata = await Skill.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [
+        {
+          model: Tutor,
+          through: SkillTutors,
+          as: 'tutors',
+          attributes: ['id', 'name', 'email'],
+          through: { attributes: [] } // Exclude pivot table attributes
+        }
+      ]
     });
+
     console.log(skilldata);
-    const skill = skilldata.get({ plain: true }); // Ne
 
-
-
-    if (!skill) {
+    if (!skilldata) {
       return res.status(404).render('error', { message: 'Skill not found' });
     }
 
+    const skill = skilldata.get({ plain: true });
     res.render('skill-details', { skill });
   } catch (err) {
     console.error(err);
