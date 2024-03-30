@@ -4,19 +4,23 @@ const { Skill, Tutor, SkillTutors } = require('../models');
 // GET all skills for homepage
 router.get('/', async (req, res) => {
   try {
-    const skills = await Skill.findAll({
-      include: [
-        {
-          model: Tutor,
-          attributes: ['id', 'name', 'email', 'jobTitle'],
-          through: { attributes: [] } // Exclude pivot table attributes
-        }
-      ]
+    const skillsdata = await Skill.findAll({
+      // include: [
+      //   {
+      //     attributes: ['id', 'name'],
+      //     through: { attributes: [] } // Exclude pivot table attributes
+      //   }
+      // ] 
+     
     });
+
+    const skills = skillsdata.map((skill) =>
+      skill.get({ plain: true }))
+  
 
     res.render('homepage', { skills });
   } catch (err) {
-    console.error(err);
+    console.log(err);
     res.status(500).render('error', { message: 'Internal Server Error' });
   }
 });
@@ -24,15 +28,19 @@ router.get('/', async (req, res) => {
 // GET one skill
 router.get('/skill/:id', async (req, res) => {
   try {
-    const skill = await Skill.findByPk(req.params.id, {
-      include: [
-        {
-          model: Tutor,
-          attributes: ['id', 'name', 'email', 'jobTitle'],
-          through: { attributes: [] } // Exclude pivot table attributes
-        }
-      ]
+    const skilldata = await Skill.findByPk(req.params.id, {
+      // include: [
+      //   {
+      //     model: Tutor,
+      //     attributes: ['id', 'name', 'email', 'jobTitle'],
+      //     through: { attributes: [] } // Exclude pivot table attributes
+      //   }
+      // ]
     });
+    console.log(skilldata);
+    const skill = skilldata.get({ plain: true }); // Ne
+
+
 
     if (!skill) {
       return res.status(404).render('error', { message: 'Skill not found' });
@@ -41,7 +49,7 @@ router.get('/skill/:id', async (req, res) => {
     res.render('skill-details', { skill });
   } catch (err) {
     console.error(err);
-    res.status(500).render('error', { message: 'Internal Server Error' });
+    res.status(500).render('error', { message: JSON.stringify(err) });
   }
 });
 
