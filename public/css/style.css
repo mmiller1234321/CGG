@@ -7,9 +7,9 @@
     --dark: #182c23;
     --error: rgb(228, 46, 1);
     --border-radius: 0.3rem;
-}
-
-body {
+  }
+  
+  body {
     font-family: Arial;
     margin: 0;
     display: flex;
@@ -17,40 +17,40 @@ body {
     min-height: 100vh;
     justify-content: flex-start;
     background-color: var(--quatrinary);
-}
-
-header {
+  }
+  
+  header {
     padding: 40px;
     text-align: center;
     background: var(--primary);
     color: var(--secondary);
     border-bottom-style: solid;
-}
-
-main {
+  }
+  
+  main {
     display: flex;
     flex-wrap: wrap;
     flex-grow: 1;
-}
-
-aside {
+  }
+  
+  aside {
     flex: 0;
     background-color: var(--tertiary);
     padding: 80px;
     text-align: left;
     color: var(--light);
-}
-
-nav {
+  }
+  
+  nav {
     display: flex;
     background-color: var(--secondary);
-}
-
-nav a {
+  }
+  
+  nav a {
     margin-right: 10px;
-}
-
-.menu-container {
+  }
+  
+  .menu-container {
     display: flex;
     flex-wrap: wrap;
     width: 75%;
@@ -64,9 +64,9 @@ nav a {
     color: var(--dark);
     padding: 50px;
     background-color: #ebebeb;
-}
-
-.add-dish-container {
+  }
+  
+  .add-dish-container {
     display: flex;
     flex-wrap: wrap;
     width: 35%;
@@ -82,9 +82,9 @@ nav a {
     padding: 50px;
     text-align: center;
     background-color: var(--tertiary);
-}
-
-.edit-dish-container {
+  }
+  
+  .edit-dish-container {
     display: flex;
     flex-wrap: wrap;
     width: 35%;
@@ -100,10 +100,10 @@ nav a {
     padding: 50px;
     text-align: center;
     background-color: var(--tertiary);
-}
-
-/* CARDS */
-.dish-card {
+  }
+  
+  /* CARDS */
+  .card {
     margin: 20px;
     flex: 0 1 300px;
     padding: 5px;
@@ -116,21 +116,9 @@ nav a {
     border-width: medium;
     background-color: var(--light);
     color: var(--dark);
-}
-
-.menu-card {
-    margin: 50px;
-    flex: 0 1 300px;
-    padding: 5px;
-    border: 3px solid var(--dark);
-    border-radius: var(--border-radius);
-    border-style: groove;
-    border-width: thick;
-    background-color: var(--light);
-    color: var(--dark);
-}
-
-.card-header {
+  }
+  
+  .card-header {
     color: var(--light);
     margin: 0;
     background-color: var(--secondary);
@@ -139,43 +127,34 @@ nav a {
     border-radius: var(--border-radius);
     border-style: solid;
     border-width: medium;
-}
-
-.has-nuts {
-    color: var(--error)
-}
-
-.dish-card-header {
-    font-size: 1.5rem;
-    color: var(--tertiary);
-    margin: 0;
-    background-color: var(--light);
-    padding: 0.625rem;
-    border-bottom-style: solid;
-}
-
-.card-body {
+  }
+  
+  .has-nuts {
+    color: var(--error);
+  }
+  
+  .card-body {
     padding: 2.5%;
     font-size: 1.4rem;
     text-align: center;
-}
-
-/* LAYOUT */
-.container {
+  }
+  
+  /* LAYOUT */
+  .container {
     display: flex;
     flex-flow: column wrap;
     align-content: flex-start;
     align-items: center;
-}
-
-/* New styles for skill grid and tiles */
-.skill-grid {
+  }
+  
+  /* New styles for skill grid and tiles */
+  .skill-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-}
-
-.skill-tile {
+  }
+  
+  .skill-tile {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -186,26 +165,26 @@ nav a {
     border: 3px solid var(--primary);
     border-radius: var(--border-radius);
     padding: 20px;
-}
-
-.skill-tile h2 {
+  }
+  
+  .skill-tile h2 {
     margin-bottom: 10px;
-}
-
-/* Media query for mobile optimization */
-@media only screen and (max-width: 600px) {
+  }
+  
+  /* Media query for mobile optimization */
+  @media only screen and (max-width: 600px) {
     header {
-        padding: 20px;
+      padding: 20px;
     }
     .menu-container,
     .add-dish-container,
     .edit-dish-container,
-    .dish-card,
-    .menu-card {
-        margin: 5px;
-        padding: 5px;
+    .card {
+      margin: 5px;
+      padding: 5px;
     }
     .card-body {
-        font-size: 1.2rem;
+      font-size: 1.2rem;
     }
-}
+  }
+  

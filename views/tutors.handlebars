@@ -1,11 +1,12 @@
+
 <section class="container">
   <h3 class="gallery-name">Tutor Details</h3>
   <section class="flex-row justify-center">
     {{#each tutors as |tutor|}}
-
     <section class="card">
       <a href="/tutor/{{tutor.id}}">
         <header>{{tutor.name}}</header>
+        <img src="/images/{{tutor.picture}}" alt="{{tutor.name}}" class="card-image">
         <div class="card-body">
           <p>Email: {{tutor.email}}</p>
         </div>

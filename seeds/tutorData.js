@@ -4,44 +4,51 @@ const tutorData = [
   {
     name: "Jack Tripper",
     email: "jack@example.com",
-    jobTitle: "Frontend Developer", 
-    Skills: [1, 2], 
+    jobTitle: "Frontend Developer",
+    Skills: [1, 2],
+    picture: "jack.jpg" // Assuming the picture filename for Jack Tripper is jack.jpg
   },
   {
     name: "Janet Wood",
     email: "janet@example.com",
-    jobTitle: "UI/UX Designer", 
-    Skills: [3, 4], 
+    jobTitle: "UI/UX Designer",
+    Skills: [3, 4],
+    picture: "janet.jpg" // Assuming the picture filename for Janet Wood is janet.jpg
   },
   {
     name: "Chrissy Snow",
     email: "chrissy@example.com",
-    jobTitle: "Frontend Engineer", 
-    Skills: [5, 6], 
+    jobTitle: "Frontend Engineer",
+    Skills: [5, 6],
+    picture: "chrissy.jpg" // Assuming the picture filename for Chrissy Snow is chrissy.jpg
   },
   {
     name: "Larry Dallas",
     email: "larry@example.com",
-    jobTitle: "Frontend Developer", // Updated job title to match the model definition
-    Skills: [1, 3], // Assuming the IDs of HTML and JavaScript skills are 1 and 3 respectively
+    jobTitle: "Frontend Developer",
+    Skills: [1, 3],
+    picture: "larry.jpg" // Assuming the picture filename for Larry Dallas is larry.jpg
   },
   {
     name: "Terri Alden",
     email: "terri@example.com",
-    jobTitle: "Web Developer", // Updated job title to match the model definition
-    Skills: [2, 4], // Assuming the IDs of CSS and React skills are 2 and 4 respectively
+    jobTitle: "Web Developer",
+    Skills: [2, 4],
+    picture: "terri.jpg" // Assuming the picture filename for Terri Alden is terri.jpg
   },
   {
-    name: "Furley",
+    name: "Mr. Furley",
     email: "furley@example.com",
-    jobTitle: "Frontend Developer", // Updated job title to match the model definition
-    Skills: [5, 6], // Assuming the IDs of Node.js and Python skills are 5 and 6 respectively
+    jobTitle: "Frontend Developer",
+    Skills: [5, 6],
+    picture: "furley.jpg" // Assuming the picture filename for Mr. Furley is furley.jpg
   },
   {
-    name: "Carol Foster-Lambert",
-    email: "carol@example.com",
-    jobTitle: "UI/UX Developer", 
-    Skills: [6, 7], 
+    name: "Mrs. Roper",
+    email: "mrsroper@example.com",
+    jobTitle: "UI/UX Developer",
+    Skills: [6, 7],
+    picture: "roper.jpg" // Assuming the picture filename for Carol Foster-Lambert is carol.jpg
   },
   // Add more tutors as needed
 ];
@@ -49,15 +56,21 @@ const tutorData = [
 const seedTutors = () => {
   return Promise.all(
     tutorData.map(async (tutor) => {
-      const newTutor = await Tutor.create(tutor);
-      // Associate each tutor with skills
-      for (const skillId of tutor.Skills) {
-        const skill = await Skill.findByPk(skillId);
-        if (skill) {
-          await newTutor.addSkill(skill); // Corrected method name to addSkill
+      try {
+        const newTutor = await Tutor.create(tutor);
+
+        // Associate each tutor with skills
+        for (const skillId of tutor.Skills) {
+          const skill = await Skill.findByPk(skillId);
+          if (skill) {
+            await newTutor.addSkill(skill); // Corrected method name to addSkill
+          }
         }
+        
+        return newTutor;
+      } catch (error) {
+        console.error("Error seeding tutor:", error);
       }
-      return newTutor;
     })
   );
 };

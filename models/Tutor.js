@@ -1,36 +1,33 @@
-// Tutor.js
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+
+const { DataTypes, Model } = require('sequelize');
+const sequelize = require('../database/connection');
 
 class Tutor extends Model {}
 
 Tutor.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique: true
     },
     jobTitle: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
+    picture: {
+      type: DataTypes.STRING, // Assuming the picture path is stored as a string
+      allowNull: false // Assuming picture is required
+    }
   },
   {
     sequelize,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'tutor',
+    modelName: 'Tutor',
+    timestamps: false // Assuming you don't want timestamps for this model
   }
 );
 
