@@ -1,6 +1,6 @@
 
 const { DataTypes, Model } = require('sequelize');
-const sequelize = require('../database/connection');
+const sequelize = require('../config/connection');
 
 class Tutor extends Model {}
 
