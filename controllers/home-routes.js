@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Skill, Tutor, SkillTutors } = require('../models');
+const withAuth = require('../utils/auth');
 
 // GET all skills for homepage
 router.get('/', async (req, res) => {
@@ -24,7 +25,7 @@ router.get('/', async (req, res) => {
 });
 
 // GET one skill
-router.get('/skill/:id', async (req, res) => {
+router.get('/skill/:id', withAuth, async (req, res) => {
   try {
     const skilldata = await Skill.findOne({
       where: {
@@ -56,7 +57,7 @@ router.get('/skill/:id', async (req, res) => {
 });
 
 // GET one tutor
-router.get('/tutor/:id', async (req, res) => {
+router.get('/tutor/:id',withAuth, async (req, res) => {
   try {
     const tutor = await Tutor.findByPk(req.params.id);
 
@@ -69,6 +70,15 @@ router.get('/tutor/:id', async (req, res) => {
     console.error(err);
     res.status(500).render('error', { message: 'Internal Server Error' });
   }
+});
+
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
 });
 
 module.exports = router;

@@ -1,24 +1,34 @@
-const express = require('express');
-const sequelize = require('./config/connection');
-const routes = require('./controllers/home-routes');
 const path = require('path');
-
-// Import express-handlebars
+const express = require('express');
+const session = require('express-session');
 const exphbs = require('express-handlebars');
+const routes = require('./controllers');
+//const helpers = require('./utils/helpers');
 
-const PORT = process.env.PORT || 3001;
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 const app = express();
+const PORT = process.env.PORT || 3001;
 
-// Configure Handlebars as the view engine
-const hbs = exphbs.create({ 
-  defaultLayout: 'main', // Specify the default layout file
-  layoutsDir: path.join(__dirname, 'views', 'layouts'), // Specify the directory for layout files
-  partialsDir: path.join(__dirname, 'views', 'partials'), // Specify the directory for partial files
-  // Disable prototype access check for Handlebars
-  // See: https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access
-  allowProtoMethodsByDefault: true,
-  allowProtoPropertiesByDefault: true
-});
+const hbs = exphbs.create({ });
+
+const sess = {
+  secret: 'Triple Secret',
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+
+app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -30,5 +40,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
+  app.listen(PORT, () => console.log('Now listening'));
 });
