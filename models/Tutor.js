@@ -19,10 +19,7 @@ Tutor.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    picture: {
-      type: DataTypes.STRING, // Assuming the picture path is stored as a string
-      allowNull: false // Assuming picture is required
-    }
+    
   },
   {
     sequelize,
