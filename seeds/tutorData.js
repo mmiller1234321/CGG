@@ -34,7 +34,7 @@ const tutorData = [
     email: "terri@example.com",
     jobTitle: "Web Developer",
     Skills: [2, 4],
- 
+  },
   {
     name: "Mr. Furley",
     email: "furley@example.com",
@@ -62,7 +62,7 @@ const seedTutors = () => {
         for (const skillId of tutor.Skills) {
           const skill = await Skill.findByPk(skillId);
           if (skill) {
-            await newTutor.addSkill(skill); // Corrected method name to addSkill
+            await newTutor.addSkills(skill); // Corrected method name to addSkills
           }
         }
         
