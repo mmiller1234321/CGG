@@ -192,6 +192,13 @@ nav a {
     margin-bottom: 10px;
 }
 
+/* Add appropriate styling for the logout link */
+#logout {
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Set link color */
+    margin-left: 10px; /* Add margin for spacing */
+  }
+  
 /* Media query for mobile optimization */
 @media only screen and (max-width: 600px) {
     header {
