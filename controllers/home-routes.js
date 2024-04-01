@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Skill, Tutor, SkillTutors } = require('../models');
+const { User, Skill, Tutor, SkillTutors } = require('../models'); // added User 8:03 am 4.1//
 const withAuth = require('../utils/auth');
 
 // GET all skills for homepage
