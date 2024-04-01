@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
     const skills = skillsdata.map((skill) =>
       skill.get({ plain: true }));
 
-    res.render('homepage', { skills });
+    res.render('homepage', { skills, logged:req.session.logged });
   } catch (err) {
     console.log(err);
     res.status(500).render('error', { message: 'Internal Server Error' });
@@ -49,23 +49,42 @@ router.get('/skill/:id', withAuth, async (req, res) => {
     }
 
     const skill = skilldata.get({ plain: true });
-    res.render('skill-details', { skill });
+    res.render('skill-details', { skill, logged:req.session.logged });
   } catch (err) {
     console.error(err);
     res.status(500).render('error', { message: JSON.stringify(err) });
   }
 });
 
+// GET all tutors
+
+router.get('/tutors', withAuth, async (req, res) => {
+  try {
+    const tutorData = await Tutor.findAll({
+      // attributes: { exclude: ['password'] }
+    });
+
+    const tutors = tutorData.map((tutor) =>
+      tutor.get({ plain: true }));
+
+    res.render('tutors', { tutors, logged:req.session.logged });
+  } catch (err) {
+    console.error(err);
+    res.status(500).render('error', { message: 'Internal Server Error' });
+  }
+})
+
+
 // GET one tutor
 router.get('/tutor/:id',withAuth, async (req, res) => {
   try {
-    const tutor = await Tutor.findByPk(req.params.id);
+    const tutorData = await Tutor.findByPk(req.params.id);
 
-    if (!tutor) {
+    if (!tutorData) {
       return res.status(404).render('error', { message: 'Tutor not found' });
     }
-
-    res.render('tutor', { tutor });
+const tutor = tutorData.get({ plain: true });
+    res.render('tutor', { tutor, logged:req.session.logged });
   } catch (err) {
     console.error(err);
     res.status(500).render('error', { message: 'Internal Server Error' });
@@ -73,7 +92,7 @@ router.get('/tutor/:id',withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged) {
     res.redirect('/');
     return;
   }

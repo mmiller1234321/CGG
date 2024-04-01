@@ -1,15 +1,13 @@
 <section class="container">
   <h3 class="gallery-name">Tutor Details</h3>
   <section class="flex-row justify-center">
-    {{#each tutors}}
     <section class="card">
-      <a href="/tutor/{{this.id}}">
-        <header>{{this.name}}</header>
+      <a href="/tutor/{{tutor.id}}">
+        <header>{{tutor.name}}</header>
         <div class="card-body">
-          <p>Email: {{this.email}}</p>
+          <p>Email: {{tutor.email}}</p>
         </div>
       </a>
     </section>
-    {{/each}}
   </section>
 </section>

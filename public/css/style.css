@@ -45,6 +45,12 @@
     display: flex;
     background-color: var(--secondary);
   }
+
+  nav a {
+    margin-right:10px;
+    
+
+  }
   
   .menu-container {
     display: flex;
