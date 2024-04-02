@@ -1,15 +1,12 @@
 <!-- homepage.handlebars -->
-{{#if skills.length}}
-  <div class="skill-grid">
-    {{#each skills}}
-      <a href="/skill/{{this.id}}" class="skill-tile">
-        <div class="skill-tile-content">
-          <h2>{{this.name}}</h2>
-          <!-- You can add more details here if needed -->
-        </div>
-      </a>
-    {{/each}}
-  </div>
+{{#each skills}}
+  <a href="/skill/{{this.id}}" class="skill-tile">
+    <div class="skill-tile-content">
+      <h2>{{this.name}}</h2>
+      <!-- You can add more details here if needed -->
+    </div>
+  </a>
+
 {{else}}
   <p>No skills available.</p>
-{{/if}}
+{{/each}}
