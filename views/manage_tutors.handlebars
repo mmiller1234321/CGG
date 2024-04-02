@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor Information</title>
+</head>
+<body>
+
+<h2>Tutor Information</h2>
+
+{{#each tutors}}
+<div class="tutor-item">
+    <span>Name: {{name}}</span><br>
+    <span>Email: {{email}}</span><br>
+    <span>Job Title: {{jobTitle}}</span><br>
+    <button onclick="deleteTutor('{{id}}')">Delete</button>
+</div>
+{{/each}}
+
+<h2>Add New Tutor</h2>
+
+<form id="tutorForm">
+    <label for="tutorName">Tutor Name:</label><br>
+    <input type="text" id="tutorName" name="tutorName" required><br><br>
+    
+    <label for="tutorEmail">Tutor Email:</label><br>
+    <input type="email" id="tutorEmail" name="tutorEmail" required><br><br>
+    
+    <label for="tutorJobTitle">Tutor Job Title:</label><br>
+    <input type="text" id="tutorJobTitle" name="tutorJobTitle" required><br><br>
+    
+    <br><br>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    document.getElementById("tutorForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        
+        var tutorNameValue = document.getElementById("tutorName").value;
+        var tutorEmailValue = document.getElementById("tutorEmail").value;
+        var tutorJobTitleValue = document.getElementById("tutorJobTitle").value;
+        
+        var data = {
+            name: tutorNameValue,
+            email: tutorEmailValue,
+            jobTitle: tutorJobTitleValue
+        };
+        
+        // Perform HTTP POST request to API route
+        fetch("/api/tutor", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(json => {
+            console.log("Tutor information submitted successfully:", json);
+            // Optionally display a success message to the user
+        })
+        .catch(error => {
+            console.error("Error submitting tutor information:", error);
+            // Optionally display an error message to the user
+        });
+    });
+    
+    // Function to delete a tutor
+    function deleteTutor(tutorId) {
+        // Perform HTTP DELETE request to API route
+        fetch(`/api/tutor/${tutorId}`, {
+            method: "DELETE"
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            console.log("Tutor deleted successfully");
+            // Optionally remove the deleted tutor from the UI
+        })
+        .catch(error => {
+            console.error("Error deleting tutor:", error);
+            // Optionally display an error message to the user
+        });
+    }
+</script>
+
+</body>
+</html>

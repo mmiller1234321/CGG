@@ -9,9 +9,21 @@ const sequelize = process.env.DB_URL
       process.env.DB_PASSWORD,
       {
         host: 'dpg-co1dfn7jbltc7396en30-a',
+        // host: 'localhost',
         dialect: 'postgres',
         port: 5432,
       }
     );
+
+
+    /*
+    const sequelize = new Sequelize('tutor_db', 'root', 'Swabi1234', {
+      host: 'localhost',
+      dialect: 'mysql',
+      dialectOptions: {
+        decimalNumbers: true,
+      },
+    });
+    */
 
 module.exports = sequelize;
