@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,31 +7,27 @@
   <link rel="stylesheet" type="text/css" href="/css/jass.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
-
 <body>
   <header>
-   <header>
     <h1>Career Gift Givers</h1>
     <nav>
-        <a href="/">Home</a>
-        <a href="/tutors">Tutors</a>
-        <span>&nbsp;&nbsp;</span>
-        {{#if logged}}
-        <a href="/logout">Logout</a>
-        {{else}}
+      <a href="/">Home</a>
+      <a href="/tutors">Tutors</a>
+      <span>&nbsp;&nbsp;</span>
+      {{#if logged}}
+        <a href="#" id="logout">Logout</a>
+      {{else}}
         <a href="/login">Login</a>
-        {{/if}}
-        {{#if logged }}
+      {{/if}}
+
+      {{#if logged }}
         <a href="/api/skill" id="admin_skill" class="btn-no-style">Admin Skill</a>
-        {{/if}}
-        {{#if logged }}
+      {{/if}}
+      {{#if logged }}
         <a href="/api/tutor" id="admin_tutor" class="btn-no-style">Admin Tutor</a>
-        {{/if}}
+      {{/if}}
     </nav>
-</header>
-
   </header>
-
   <main>
     <aside>
       <h2>What do you want to learn today?</h2>
@@ -41,9 +36,8 @@
       {{{body}}}
     </div>
   </main>
-
-  {{#if loggedIn}}
-  <script src="/js/logout.js"></script>
+  {{#if logged}}
+    <script src="/js/logout.js"></script>
   {{/if}}
 
   <script>
@@ -57,5 +51,5 @@
     }
   </script>
 </body>
-
 </html>
+
