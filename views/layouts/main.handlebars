@@ -19,6 +19,13 @@
       {{else}}
         <a href="/login">Login</a>
       {{/if}}
+
+      {{#if logged }}
+        <a href="/api/skill" id="admin_skill" class="btn-no-style">Admin Skill</a>
+      {{/if}}
+      {{#if logged }}
+        <a href="/api/tutor" id="admin_tutor" class="btn-no-style">Admin Tutor</a>
+      {{/if}}
     </nav>
   </header>
   <main>
@@ -32,6 +39,17 @@
   {{#if logged}}
     <script src="/js/logout.js"></script>
   {{/if}}
+
+  <script>
+    if (localStorage.getItem("email") !== "admin@swabimobile.com") {
+      console.log("IS NOT ADMIN");
+      if (document.getElementById("admin_skill") != null && document.getElementById("admin_tutor") != null) {
+        console.log("IS HIDING LINKs");
+        document.getElementById("admin_skill").style.display = "none";
+        document.getElementById("admin_tutor").style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>
 
