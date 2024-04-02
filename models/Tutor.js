@@ -1,30 +1,37 @@
 
-const { DataTypes, Model } = require('sequelize');
+// Tutor.js
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Tutor extends Model {}
 
 Tutor.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
     },
     jobTitle: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
-    
   },
   {
     sequelize,
-    modelName: 'Tutor',
-    timestamps: false // Assuming you don't want timestamps for this model
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'tutor',
   }
 );
 
