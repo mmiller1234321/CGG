@@ -34,7 +34,7 @@ const tutorData = [
     email: "terri@example.com",
     jobTitle: "Web Developer",
     Skills: [2, 4],
- 
+  },
   {
     name: "Mr. Furley",
     email: "furley@example.com",
