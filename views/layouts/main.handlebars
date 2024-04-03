@@ -11,21 +11,13 @@
   <header>
     <h1>Career Gift Givers</h1>
     <nav>
-      <a href="/">Home</a>
-      <a href="/tutors">Tutors</a>
-      <span>&nbsp;&nbsp;</span>
       {{#if logged}}
         <a href="#" id="logout">Logout</a>
       {{else}}
         <a href="/login">Login</a>
       {{/if}}
-
-      {{#if logged }}
-        <a href="/api/skill" id="admin_skill" class="btn-no-style">Admin Skill</a>
-      {{/if}}
-      {{#if logged }}
-        <a href="/api/tutor" id="admin_tutor" class="btn-no-style">Admin Tutor</a>
-      {{/if}}
+      <a href="/tutors">Tutors</a>
+      <a href="/">Home</a> <!-- Reorder the links -->
     </nav>
   </header>
   <main>

@@ -10,9 +10,7 @@
       <div class="card-body d-flex flex-column">
         <h5 class="card-title">Tutor: {{this.name}}</h5>
         <p class="card-text">Email: {{this.email}}</p>
-        <!-- You can replace "Picture coming soon" with an actual image -->
-        <!-- <img src="path_to_image" class="card-img-top" alt="Tutor Image"> -->
-        <p class="card-text flex-grow-1">Picture coming soon</p>
+        <img src="{{this.imageLink}}" class="card-img-top" alt="Tutor Image"> <!-- Update src attribute to use imageLink -->
         <!-- You need to add jobTitle field in your tutor model to display it here -->
         <!-- <p class="card-text">Job Title: {{this.jobTitle}}</p> -->
       </div>
