@@ -3,6 +3,8 @@
   <section class="flex-row justify-center">
     <section class="card">
       <a href="/tutor/{{tutor.id}}">
+        <!-- Load the image dynamically -->
+        <img src="/images/{{tutor.firstName}}.jpg" alt="{{tutor.firstName}}">
         <header>{{tutor.name}}</header>
         <div class="card-body">
           <p>Email: {{tutor.email}}</p>
