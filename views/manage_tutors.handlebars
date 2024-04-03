@@ -4,23 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tutor Information</title>
+    <style>
+        .tutor-item {
+            background-color: #f8f9fa; /* Light grey background */
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            margin-bottom: 20px;
+        }
+
+        .tutor-info {
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .delete-button {
+            background-color: #dc3545; /* Bootstrap danger color */
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .delete-button:hover {
+            background-color: #c82333; /* Darker shade of Bootstrap danger color */
+        }
+    </style>
 </head>
 <body>
 
-<h2>Tutor Information</h2>
+<h2 style="margin-left: 10px;">Tutor Information</h2>
 
 {{#each tutors}}
-<div class="tutor-item">
-    <span>Name: {{name}}</span><br>
-    <span>Email: {{email}}</span><br>
-    <span>Job Title: {{jobTitle}}</span><br>
-    <button onclick="deleteTutor('{{id}}')">Delete</button>
+<div class="tutor-item" style="margin-left: 10px;">
+    <span class="tutor-info">Name: {{name}}</span><br>
+    <span class="tutor-info">Email: {{email}}</span><br>
+    <span class="tutor-info">Job Title: {{jobTitle}}</span><br>
+    <button class="delete-button" onclick="deleteTutor('{{id}}')">Delete</button>
 </div>
 {{/each}}
 
-<h2>Add New Tutor</h2>
+<h2 style="margin-left: 10px;">Add New Tutor</h2>
 
-<form id="tutorForm">
+<form id="tutorForm" style="margin-left: 10px;">
     <label for="tutorName">Tutor Name:</label><br>
     <input type="text" id="tutorName" name="tutorName" required><br><br>
     
@@ -30,7 +58,7 @@
     <label for="tutorJobTitle">Tutor Job Title:</label><br>
     <input type="text" id="tutorJobTitle" name="tutorJobTitle" required><br><br>
     
-    <br><br>
+    <br>
     <button type="submit">Submit</button>
 </form>
 
