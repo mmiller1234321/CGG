@@ -36,7 +36,7 @@ router.get('/skill/:id', withAuth, async (req, res) => {
           model: Tutor,
           through: SkillTutors,
           as: 'tutors',
-          attributes: ['id', 'name', 'email'],
+          attributes: ['id', 'name', 'email', 'jobTitle', 'imageLink'],
           through: { attributes: [] } // Exclude pivot table attributes
         }
       ]

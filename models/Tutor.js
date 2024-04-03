@@ -26,6 +26,10 @@ Tutor.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    imageLink: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     sequelize,
