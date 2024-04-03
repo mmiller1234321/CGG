@@ -4,21 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skill Management</title>
+    <style>
+        .skill-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Align items to start and end of container */
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            margin-right: 10px;
+        }
+
+        .skill-color {
+            padding: 2px 5px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .delete-button {
+            background-color: #dc3545; /* Bootstrap danger color */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .delete-button:hover {
+            background-color: #c82333; /* Darker shade of Bootstrap danger color */
+        }
+
+        body {
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<h2>List of Skills</h2>
+<h2 style="margin-left: 10px;">List of Skills</h2>
 
 {{#each skills}}
 <div class="skill-item">
-    <span>{{name}}</span></span>
-    <button onclick="deleteSkill('{{id}}')">Delete</button>
+    <span class="skill-name" style="margin-left: 10px;">{{name}} - <span class="skill-color" style="margin-left: 10px; background-color: {{color}};">{{color}}</span></span>
+    <button class="delete-button" onclick="deleteSkill('{{id}}')">Delete</button>
 </div>
 {{/each}}
 
-<h2>Add or Update Skill</h2>
+<h2 style="margin-left: 10px;">Add or Update Skill</h2>
 
-<form id="skillForm">
+<form id="skillForm" style="margin-left: 10px;">
     <label for="skillName">Name:</label><br>
     <input type="text" id="skillName" name="skillName" required><br><br>
     
