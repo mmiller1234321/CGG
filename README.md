@@ -28,7 +28,7 @@
 
   ## Usage <a id="usage"></a>
 
- User can schedule a tutoring session and checkout with payment! You may click on one of the many options and checkout our skilled Gigt Givers! Book as many sessions as you want. Lern or advance in a skill. 
+ User can schedule a tutoring session and checkout with payment! You may click on one of the many options and checkout our skilled Gift Givers! Book as many sessions as you want. Lern or advance in a skill. 
 
   ## License <a id="license"></a>
 
