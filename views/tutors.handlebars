@@ -5,8 +5,11 @@
 
     <section class="card">
       <a href="/tutor/{{tutor.id}}">
+        <!-- Load the image dynamically -->
+        
         <header>{{tutor.name}}</header>
         <div class="card-body">
+          <img src="/images/{{tutor.imageLink}}" alt="{{tutor.name}}">
           <p>Email: {{tutor.email}}</p>
         </div>
       </a>
