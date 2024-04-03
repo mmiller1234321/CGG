@@ -7,6 +7,12 @@
     --dark: #182c23;
     --error: rgb(228, 46, 1);
     --border-radius: 0.3rem;
+
+    /* Color variables that can be easily adjusted */
+    --header-background-color: lightblue;
+    --header-text-color: var(--secondary);
+    --aside-background-color: lightgreen;
+    --aside-text-color: var(--light);
 }
 
 body {
@@ -22,8 +28,8 @@ body {
 header {
     padding: 40px;
     text-align: center;
-    background: var(--primary);
-    color: var(--secondary);
+    background: var(--header-background-color); /* Use variable for background color */
+    color: var(--header-text-color); /* Use variable for text color */
     border-bottom-style: solid;
 }
 
@@ -35,10 +41,10 @@ main {
 
 aside {
     flex: 0;
-    background-color: var(--tertiary);
+    background-color: var(--aside-background-color); /* Use variable for background color */
     padding: 80px;
     text-align: left;
-    color: var(--light);
+    color: var(--aside-text-color); /* Use variable for text color */
 }
 
 nav {
@@ -55,7 +61,7 @@ nav a {
     flex-wrap: wrap;
     width: 75%;
     min-height: 100%;
-    margin: 0px auto;
+    margin: 0 auto;
     border: 3px solid var(--primary);
     border-radius: var(--border-radius);
     border-style: solid;
@@ -66,24 +72,7 @@ nav a {
     background-color: #ebebeb;
 }
 
-.add-dish-container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 35%;
-    min-height: 100%;
-    min-width: 35%;
-    margin: 5px auto;
-    border: 3px solid var(--primary);
-    border-radius: var(--border-radius);
-    border-style: solid;
-    border-width: medium;
-    background-color: var(--light);
-    color: var(--dark);
-    padding: 50px;
-    text-align: center;
-    background-color: var(--tertiary);
-}
-
+.add-dish-container,
 .edit-dish-container {
     display: flex;
     flex-wrap: wrap;
@@ -103,7 +92,8 @@ nav a {
 }
 
 /* CARDS */
-.dish-card {
+.dish-card,
+.menu-card {
     margin: 20px;
     flex: 0 1 300px;
     padding: 5px;
@@ -120,14 +110,9 @@ nav a {
 
 .menu-card {
     margin: 50px;
-    flex: 0 1 300px;
-    padding: 5px;
     border: 3px solid var(--dark);
-    border-radius: var(--border-radius);
     border-style: groove;
     border-width: thick;
-    background-color: var(--light);
-    color: var(--dark);
 }
 
 .card-header {
@@ -197,8 +182,8 @@ nav a {
     text-decoration: none; /* Remove underline */
     color: #333; /* Set link color */
     margin-left: 10px; /* Add margin for spacing */
-  }
-  
+}
+
 /* Media query for mobile optimization */
 @media only screen and (max-width: 600px) {
     header {
