@@ -15,15 +15,14 @@ const sequelize = process.env.DB_URL
       }
     );
 
-
     /*
-    const sequelize = new Sequelize('tutor_db', 'root', 'Swabi1234', {
-      host: 'localhost',
-      dialect: 'mysql',
-      dialectOptions: {
-        decimalNumbers: true,
-      },
-    });
-    */
+const sequelize = new Sequelize('cgg_db', 'root', 'Swabi1234', {
+  host: 'localhost',
+  dialect: 'mysql',
+  dialectOptions: {
+    decimalNumbers: true,
+  },
+});
+*/
 
 module.exports = sequelize;
