@@ -53,20 +53,27 @@ const tutorData = [
   // Add more tutors as needed
 ];
 
-const seedTutors = () => {
-  return Promise.all(
-    tutorData.map(async (tutor) => {
-      const newTutor = await Tutor.create(tutor);
-      // Associate each tutor with skills
-      for (const skillId of tutor.Skills) {
-        const skill = await Skill.findByPk(skillId);
-        if (skill) {
-          await newTutor.addSkill(skill); // Corrected method name to addSkill
+const seedTutors = async () => {
+  try {
+    const tutors = await Promise.all(
+      tutorData.map(async (tutor) => {
+        const newTutor = await Tutor.create(tutor);
+        // Associate each tutor with skills
+        for (const skillId of tutor.Skills) {
+          const skill = await Skill.findByPk(skillId);
+          if (skill) {
+            await newTutor.addSkill(skill); // Associate tutor with skill
+          }
         }
-      }
-      return newTutor;
-    })
-  );
+        return newTutor;
+      })
+    );
+    console.log('Tutors seeded successfully');
+    return tutors;
+  } catch (err) {
+    console.error('Error seeding tutors:', err);
+  }
 };
 
 module.exports = seedTutors;
+
