@@ -6,6 +6,8 @@ const { Skill, Tutor } = require('../../models');
 router.get('/', async (req, res) => {
     // find all tutors
     try {
+      req.session.logged = true;
+      
       const data = await Tutor.findAll({
         include: [{ all: true, nested: true }],
       });
