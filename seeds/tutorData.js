@@ -5,14 +5,14 @@ const tutorData = [
     name: "Jack Tripper",
     email: "jack@example.com",
     jobTitle: "Frontend Developer", 
-    Skills: [1, 2], 
+    Skills: [1, 2],
     imageLink: "jack.jpg"
   },
   {
     name: "Janet Wood",
     email: "janet@example.com",
     jobTitle: "UI/UX Designer", 
-    Skills: [3, 4], 
+    Skills: [3, 4],
     imageLink: "janet.jpg" // Link to Janet Wood's image
   },
   {
