@@ -5,18 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <!-- Include any necessary CSS files here -->
+    <style>
+        .row {
+            display: flex;
+            justify-content: space-between; /* Adjusts the space between the login and signup cards */
+            align-items: flex-start; /* Aligns items at the start of the flex container */
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        .login-card {
+            width: 35%; /* Adjust the width of login cards */
+        }
+
+        .form-group {
+            margin-bottom: 15px; /* Adds space between form groups */
+        }
+
+        .form-label {
+            display: block; /* Ensures labels are displayed as block elements */
+            margin-bottom: 5px; /* Adds space between labels and inputs */
+        }
+
+        .form-input {
+            width: 100%; /* Makes inputs fill their parent container */
+            padding: 8px; /* Adds padding to inputs */
+            border: 1px solid #ccc; /* Adds border to inputs */
+            border-radius: 5px; /* Rounds input corners */
+            box-sizing: border-box; /* Ensures padding and border are included in input's total width */
+        }
+
+        .btn {
+            padding: 10px 20px; /* Adds padding to buttons */
+            border: none; /* Removes button borders */
+            border-radius: 5px; /* Rounds button corners */
+            cursor: pointer; /* Changes cursor to pointer on hover */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Sets primary button background color */
+            color: #fff; /* Sets primary button text color */
+        }
+    </style>
 </head>
 <body>
-    <div class="row justify-space-between-md">
+    <div class="row">
         <div class="login-card">
             <h2 class="page-title">Login</h2>
             <form class="form login-form" action="/login" method="POST">
                 <div class="form-group">
-                    <label for="email-login">Email:</label>
+                    <label class="form-label" for="email-login">Email:</label>
                     <input class="form-input" type="text" id="email-login" name="email" required />
                 </div>
                 <div class="form-group">
-                    <label for="password-login">Password:</label>
+                    <label class="form-label" for="password-login">Password:</label>
                     <input class="form-input" type="password" id="password-login" name="password" required />
                 </div>
                 <div class="form-group">
@@ -28,15 +70,15 @@
             <h2 class="page-title">Signup</h2>
             <form class="form signup-form" action="/signup" method="POST">
                 <div class="form-group">
-                    <label for="username-signup">Username:</label>
+                    <label class="form-label" for="username-signup">Username:</label>
                     <input class="form-input" type="text" id="username-signup" name="username" required />
                 </div>
                 <div class="form-group">
-                    <label for="email-signup">Email:</label>
+                    <label class="form-label" for="email-signup">Email:</label>
                     <input class="form-input" type="text" id="email-signup" name="email" required />
                 </div>
                 <div class="form-group">
-                    <label for="password-signup">Password:</label>
+                    <label class="form-label" for="password-signup">Password:</label>
                     <input class="form-input" type="password" id="password-signup" name="password" required />
                 </div>
                 <div class="form-group">
