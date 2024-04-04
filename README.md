@@ -28,7 +28,7 @@
 
   ## Usage <a id="usage"></a>
 
- User can schedule a tutoring session and checkout with payment! You may click on one of the many options and checkout our skilled Gift Givers! Book as many sessions as you want. Lern or advance in a skill. 
+ User can schedule a tutoring session and tip our tutor! You may click on one of the many options, or checkout  our skilled Gift Givers! Book as many sessions as you want. Learn or advance in a skill. 
 
   ## License <a id="license"></a>
 
@@ -60,7 +60,7 @@ Please note we did start a new repo to make our project cleaner, we all comtribu
 
   
 Hosted on Render
-Link to Web Service on Render: https://project-2-career-gift-givers.onrender.com/
+Link to Web Service on Render: https://cgg-1.onrender.com
 
 
 
