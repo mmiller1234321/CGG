@@ -1,19 +1,33 @@
-<section class="container">
-  <h3 class="gallery-name">Tutor Details</h3>
-  <section class="flex-row justify-center">
-    {{#each tutors as |tutor|}}
-
-    <section class="card">
-      <a href="/tutor/{{tutor.id}}">
-        <!-- Load the image dynamically -->
-        
-        <header>{{Tutor.name}}</header>
-        <div class="card-body">
-          <img src="/images/{{tutor.imageLink}}" alt="{{tutor.name}}">
-          <p>Email: {{tutor.email}}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutor Details</title>
+  <!-- Include Bootstrap's CSS via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <section class="container">
+    <h3 class="gallery-name">Tutor Details</h3>
+    <div class="row justify-content-center">
+      {{#each tutors as |tutor|}}
+      <div class="col-md-4 mb-4">
+        <div class="card border rounded">
+          <div class="card-body">
+            <a href="/tutor/{{tutor.id}}">
+              <!-- Load the image dynamically -->
+              <img src="/images/{{tutor.imageLink}}" class="card-img-top" alt="{{tutor.name}}" style="width: 100%; height: 200px; object-fit: cover;">
+            </a>
+            <h5 class="card-title">{{tutor.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{tutor.jobTitle}}</h6> <!-- Added job title -->
+            <p class="card-text">Email: {{tutor.email}}</p>
+          </div>
         </div>
-      </a>
-    </section>
-    {{/each}}
+      </div>
+      {{/each}}
+    </div>
   </section>
-</section>
+</body>
+</html>
+
