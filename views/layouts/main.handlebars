@@ -6,6 +6,19 @@
   <title>Career Gift Givers</title>
   <link rel="stylesheet" type="text/css" href="/css/jass.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <style>
+    .skill-container {
+      display: flex;
+      align-items: flex-start;
+    }
+    .skill {
+      width: 40%; /* Adjust width as needed */
+    }
+    .aside-content {
+      width: 60%; /* Adjust width as needed */
+      align-self: flex-start;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -29,11 +42,17 @@
     </nav>
   </header>
   <main>
-    <aside>
-      <h2>What do you want to learn today?</h2>
-    </aside>
-    <div class="skill">
-      {{{body}}}
+    <div class="skill-container">
+      <aside class="aside-content">
+        <h2>What do you want to learn today?</h2>
+      </aside>
+      <div class="skill">
+        <!-- Add paragraph here -->
+        <p style="margin-left: 15px;">
+          The Career Gift Givers community connects students and anyone eager to learn about computer programming with retired software professionals who have extensive experience and are accomplished engineers with enthusiasm to teach, mentor, and inspire.
+        </p>
+        {{{body}}}
+      </div>
     </div>
   </main>
   {{#if logged}}
