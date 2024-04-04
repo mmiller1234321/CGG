@@ -6,9 +6,11 @@ const { Skill, Tutor } = require('../../models');
 router.get('/', async (req, res) => {
 
   console.log("APD /api/skill");
-  
+
     // find all skills
     try {
+      req.session.logged = true;
+      
       const data = await Skill.findAll({
         include: [{ all: true, nested: true }],
       });
