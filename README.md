@@ -53,6 +53,9 @@ N/A
   GtHub: <a href="https://github.com/mmiller1234321"> mmiller1234321</a>
 
   ## Walk-through video 
+[CCG Website Walkthrough (1).webm](https://github.com/mmiller1234321/CGG/assets/150938385/143149d8-a013-4ec9-9587-d39f664071b5)
+
+  
 
   ## Resources <a id="Resources"></a>
 
